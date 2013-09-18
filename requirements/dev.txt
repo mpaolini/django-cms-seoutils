@@ -1,0 +1,8 @@
+-r base.txt
+# for cms doctests
+sphinx
+# for cms tests custom models
+django-hvad
+django-reversion
+# for image field
+Pillow
