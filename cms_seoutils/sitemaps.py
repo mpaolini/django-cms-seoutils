@@ -15,8 +15,9 @@ class CMSI18nSitemap(CMSSitemap):
         alt_pages = []
         site = Site.objects.get_current()
         site_languages = get_public_languages(site.pk)
+        # Need this published filter due to a django-cms bug
         page_queryset = Page.objects.on_site(site).public()\
-            .filter(login_required=False)
+            .filter(login_required=False, published=True)
         for page in page_queryset:
             alt_links = get_alternate(page,
                                       site=site,
